@@ -37,6 +37,7 @@ export const Menu: React.FC<MenuProps> = () => {
         deleteDiagram,
         updateDiagramUpdatedAt,
         databaseType,
+        dependencies,
     } = useChartDB();
     const {
         openCreateDiagramDialog,
@@ -80,7 +81,11 @@ export const Menu: React.FC<MenuProps> = () => {
     };
 
     const exportSVG = useCallback(() => {
-        exportImage('svg', 1);
+        exportImage('svg', {
+            scale: 1,
+            transparent: true,
+            includePatternBG: false,
+        });
     }, [exportImage]);
 
     const exportPNG = useCallback(() => {
@@ -393,7 +398,9 @@ export const Menu: React.FC<MenuProps> = () => {
                             ? t('menu.view.hide_cardinality')
                             : t('menu.view.show_cardinality')}
                     </MenubarItem>
-                    {databaseType !== DatabaseType.CLICKHOUSE ? (
+                    {databaseType !== DatabaseType.CLICKHOUSE &&
+                    dependencies &&
+                    dependencies.length > 0 ? (
                         <MenubarItem onClick={showOrHideDependencies}>
                             {showDependenciesOnCanvas
                                 ? t('menu.view.hide_dependencies')
