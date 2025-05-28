@@ -232,6 +232,32 @@ export const tr: LanguageTranslation = {
                     description: 'Create an area to get started',
                 },
             },
+            // TODO: Translate
+            custom_types_section: {
+                custom_types: 'Custom Types',
+                filter: 'Filter',
+                clear: 'Clear Filter',
+                no_results: 'No custom types found matching your filter.',
+                empty_state: {
+                    title: 'No custom types',
+                    description:
+                        'Custom types will appear here when they are available in your database',
+                },
+                custom_type: {
+                    kind: 'Kind',
+                    enum_values: 'Enum Values',
+                    composite_fields: 'Fields',
+                    no_fields: 'No fields defined',
+                    field_name_placeholder: 'Field name',
+                    field_type_placeholder: 'Select type',
+                    add_field: 'Add Field',
+                    custom_type_actions: {
+                        title: 'Actions',
+                        delete_custom_type: 'Delete',
+                    },
+                    delete_custom_type: 'Delete Type',
+                },
+            },
         },
         toolbar: {
             zoom_in: 'Yakınlaştır',
@@ -255,7 +281,7 @@ export const tr: LanguageTranslation = {
                 title: 'Veritabanını İçe Aktar',
                 database_edition: 'Veritabanı Sürümü:',
                 step_1: 'Bu komut dosyasını veritabanınızda çalıştırın:',
-                step_2: 'Komut dosyası sonucunu buraya yapıştırın:',
+                step_2: 'Komut dosyası sonucunu buraya yapıştırın →',
                 script_results_placeholder: 'Komut dosyası sonuçları burada...',
                 ssms_instructions: {
                     button_text: 'SSMS Talimatları',
@@ -346,6 +372,12 @@ export const tr: LanguageTranslation = {
             scale_4x: '4x',
             cancel: 'İptal',
             export: 'Dışa Aktar',
+            // TODO: Translate
+            advanced_options: 'Advanced Options',
+            pattern: 'Include background pattern',
+            pattern_description: 'Add subtle grid pattern to background.',
+            transparent: 'Transparent background',
+            transparent_description: 'Remove background color from image.',
         },
         new_table_schema_dialog: {
             title: 'Şema Seç',

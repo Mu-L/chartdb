@@ -8,6 +8,11 @@ export const getMySQLQuery = (
     const databaseEdition: DatabaseEdition | undefined =
         options.databaseEdition;
 
+    const withExtras = false;
+
+    const withDefault = `IFNULL(REPLACE(REPLACE(cols.column_default, '\\\\', ''), '"', 'ֿֿֿ\\"'), '')`;
+    const withoutDefault = `""`;
+
     const newMySQLQuery = `WITH fk_info as (
 (SELECT (@fk_info:=NULL),
     (SELECT (0)
@@ -86,7 +91,7 @@ export const getMySQLQuery = (
                     END,
                 ',"ordinal_position":', cols.ordinal_position,
                 ',"nullable":', IF(cols.is_nullable = 'YES', 'true', 'false'),
-                ',"default":"', IFNULL(REPLACE(REPLACE(cols.column_default, '\\\\', ''), '"', 'ֿֿֿ\\"'), ''),
+                ',"default":"', ${withExtras ? withDefault : withoutDefault},
                 '","collation":"', IFNULL(cols.collation_name, ''), '"}'
             )))))
 ), indexes as (
@@ -133,7 +138,7 @@ export const getMySQLQuery = (
                    AND table_schema = DATABASE()
                    AND (0x00) IN (@views:=CONCAT_WS(',', @views, CONCAT('{', '"schema":"', \`TABLE_SCHEMA\`, '",',
                                                    '"view_name":"', \`TABLE_NAME\`, '",',
-                                                   '"view_definition":"', REPLACE(REPLACE(TO_BASE64(VIEW_DEFINITION), ' ', ''), '\n', ''), '"}'))) ) )
+                                                   '"view_definition":""}'))) ) )
 )
 (SELECT CAST(CONCAT('{"fk_info": [',IFNULL(@fk_info,''),
                 '], "pk_info": [', IFNULL(@pk_info, ''),
@@ -211,7 +216,7 @@ export const getMySQLQuery = (
                          ',"scale":', IFNULL(cols.numeric_scale, 'null'), '}'), 'null'),
                ',"ordinal_position":', cols.ordinal_position,
                ',"nullable":', IF(cols.is_nullable = 'YES', 'true', 'false'),
-               ',"default":"', IFNULL(REPLACE(REPLACE(cols.column_default, '\\\\', ''), '"', '\\"'), ''),
+               ',"default":"', ${withExtras ? withDefault : withoutDefault},
                '","collation":"', IFNULL(cols.collation_name, ''), '"}')
     ) FROM (
         SELECT cols.table_schema,
@@ -286,7 +291,7 @@ export const getMySQLQuery = (
     ) FROM (
         SELECT \`TABLE_SCHEMA\`,
                \`TABLE_NAME\` AS view_name,
-               REPLACE(REPLACE(TO_BASE64(\`VIEW_DEFINITION\`), ' ', ''), '\n', '') AS view_definition
+               null AS view_definition
         FROM information_schema.views vws
         WHERE vws.table_schema = DATABASE()
     ) AS vws), ''),

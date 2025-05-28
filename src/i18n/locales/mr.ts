@@ -236,6 +236,32 @@ export const mr: LanguageTranslation = {
                     description: 'Create an area to get started',
                 },
             },
+            // TODO: Translate
+            custom_types_section: {
+                custom_types: 'Custom Types',
+                filter: 'Filter',
+                clear: 'Clear Filter',
+                no_results: 'No custom types found matching your filter.',
+                empty_state: {
+                    title: 'No custom types',
+                    description:
+                        'Custom types will appear here when they are available in your database',
+                },
+                custom_type: {
+                    kind: 'Kind',
+                    enum_values: 'Enum Values',
+                    composite_fields: 'Fields',
+                    no_fields: 'No fields defined',
+                    field_name_placeholder: 'Field name',
+                    field_type_placeholder: 'Select type',
+                    add_field: 'Add Field',
+                    custom_type_actions: {
+                        title: 'Actions',
+                        delete_custom_type: 'Delete',
+                    },
+                    delete_custom_type: 'Delete Type',
+                },
+            },
         },
 
         toolbar: {
@@ -262,7 +288,7 @@ export const mr: LanguageTranslation = {
                 title: 'तुमचा डेटाबेस आयात करा',
                 database_edition: 'डेटाबेस संस्करण:',
                 step_1: 'तुमच्या डेटाबेसमध्ये हा स्क्रिप्ट चालवा:',
-                step_2: 'स्क्रिप्टचा परिणाम येथे पेस्ट करा:',
+                step_2: 'स्क्रिप्टचा परिणाम येथे पेस्ट करा →',
                 script_results_placeholder: 'स्क्रिप्ट परिणाम येथे...',
                 ssms_instructions: {
                     button_text: 'SSMS सूचना',
@@ -358,6 +384,12 @@ export const mr: LanguageTranslation = {
             scale_4x: '4x',
             cancel: 'रद्द करा',
             export: 'निर्यात करा',
+            // TODO: Translate
+            advanced_options: 'Advanced Options',
+            pattern: 'Include background pattern',
+            pattern_description: 'Add subtle grid pattern to background.',
+            transparent: 'Transparent background',
+            transparent_description: 'Remove background color from image.',
         },
 
         new_table_schema_dialog: {

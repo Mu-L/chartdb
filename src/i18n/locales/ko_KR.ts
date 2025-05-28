@@ -231,6 +231,32 @@ export const ko_KR: LanguageTranslation = {
                     description: 'Create an area to get started',
                 },
             },
+            // TODO: Translate
+            custom_types_section: {
+                custom_types: 'Custom Types',
+                filter: 'Filter',
+                clear: 'Clear Filter',
+                no_results: 'No custom types found matching your filter.',
+                empty_state: {
+                    title: 'No custom types',
+                    description:
+                        'Custom types will appear here when they are available in your database',
+                },
+                custom_type: {
+                    kind: 'Kind',
+                    enum_values: 'Enum Values',
+                    composite_fields: 'Fields',
+                    no_fields: 'No fields defined',
+                    field_name_placeholder: 'Field name',
+                    field_type_placeholder: 'Select type',
+                    add_field: 'Add Field',
+                    custom_type_actions: {
+                        title: 'Actions',
+                        delete_custom_type: 'Delete',
+                    },
+                    delete_custom_type: 'Delete Type',
+                },
+            },
         },
 
         toolbar: {
@@ -257,7 +283,7 @@ export const ko_KR: LanguageTranslation = {
                 title: '당신의 데이터베이스를 가져오세요',
                 database_edition: '데이터베이스 세부 종류:',
                 step_1: '데이터베이스에서 아래의 SQL을 실행해주세요:',
-                step_2: '이곳에 결과를 붙여넣어주세요:',
+                step_2: '이곳에 결과를 붙여넣어주세요 →',
                 script_results_placeholder: '이곳에 스크립트 결과를 입력...',
                 ssms_instructions: {
                     button_text: 'SSMS을 사용하시는 경우',
@@ -350,6 +376,12 @@ export const ko_KR: LanguageTranslation = {
             scale_4x: '4x',
             cancel: '취소',
             export: '내보내기',
+            // TODO: Translate
+            advanced_options: 'Advanced Options',
+            pattern: 'Include background pattern',
+            pattern_description: 'Add subtle grid pattern to background.',
+            transparent: 'Transparent background',
+            transparent_description: 'Remove background color from image.',
         },
 
         new_table_schema_dialog: {

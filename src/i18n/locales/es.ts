@@ -222,6 +222,32 @@ export const es: LanguageTranslation = {
                     description: 'Create an area to get started',
                 },
             },
+            // TODO: Translate
+            custom_types_section: {
+                custom_types: 'Custom Types',
+                filter: 'Filter',
+                clear: 'Clear Filter',
+                no_results: 'No custom types found matching your filter.',
+                empty_state: {
+                    title: 'No custom types',
+                    description:
+                        'Custom types will appear here when they are available in your database',
+                },
+                custom_type: {
+                    kind: 'Kind',
+                    enum_values: 'Enum Values',
+                    composite_fields: 'Fields',
+                    no_fields: 'No fields defined',
+                    field_name_placeholder: 'Field name',
+                    field_type_placeholder: 'Select type',
+                    add_field: 'Add Field',
+                    custom_type_actions: {
+                        title: 'Actions',
+                        delete_custom_type: 'Delete',
+                    },
+                    delete_custom_type: 'Delete Type',
+                },
+            },
         },
 
         toolbar: {
@@ -248,7 +274,7 @@ export const es: LanguageTranslation = {
                 title: 'Importa tu Base de Datos',
                 database_edition: 'Edición de Base de Datos:',
                 step_1: 'Ejecuta este script en tu base de datos:',
-                step_2: 'Pega el resultado del script aquí:',
+                step_2: 'Pega el resultado del script aquí →',
                 script_results_placeholder: 'Resultados del script aquí...',
                 ssms_instructions: {
                     button_text: 'Instrucciones SSMS',
@@ -344,6 +370,12 @@ export const es: LanguageTranslation = {
             scale_4x: '4x',
             cancel: 'Cancelar',
             export: 'Exportar',
+            // TODO: Translate
+            advanced_options: 'Advanced Options',
+            pattern: 'Include background pattern',
+            pattern_description: 'Add subtle grid pattern to background.',
+            transparent: 'Transparent background',
+            transparent_description: 'Remove background color from image.',
         },
 
         new_table_schema_dialog: {

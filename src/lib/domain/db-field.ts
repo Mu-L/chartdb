@@ -4,8 +4,8 @@ import type { ColumnInfo } from '../data/import-metadata/metadata-types/column-i
 import type { AggregatedIndexInfo } from '../data/import-metadata/metadata-types/index-info';
 import type { PrimaryKeyInfo } from '../data/import-metadata/metadata-types/primary-key-info';
 import type { TableInfo } from '../data/import-metadata/metadata-types/table-info';
-import { generateId } from '../utils';
 import { schemaNameToDomainSchemaName } from './db-schema';
+import { generateId } from '../utils';
 
 export interface DBField {
     id: string;
@@ -14,6 +14,7 @@ export interface DBField {
     primaryKey: boolean;
     unique: boolean;
     nullable: boolean;
+    increment?: boolean;
     createdAt: number;
     characterMaximumLength?: string;
     precision?: number;
@@ -30,6 +31,7 @@ export const dbFieldSchema: z.ZodType<DBField> = z.object({
     primaryKey: z.boolean(),
     unique: z.boolean(),
     nullable: z.boolean(),
+    increment: z.boolean().optional(),
     createdAt: z.number(),
     characterMaximumLength: z.string().optional(),
     precision: z.number().optional(),

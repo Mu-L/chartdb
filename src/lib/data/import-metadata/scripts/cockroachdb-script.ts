@@ -124,7 +124,7 @@ cols AS (
                                                     ELSE 'null'
                                                 END,
                                             ',"nullable":', CASE WHEN (cols.IS_NULLABLE = 'YES') THEN true ELSE false END::TEXT,
-                                            ',"default":"', COALESCE(replace(replace(cols.column_default::TEXT, '"', '\\"'), '\\x', '\\\\x'), ''),
+                                            ',"default":"', null,
                                             '","collation":"', COALESCE(cols.COLLATION_NAME::TEXT, ''),
                                             '","comment":"', COALESCE(replace(replace(dsc.description::TEXT, '"', '\\"'), '\\x', '\\\\x'), ''),
                                             '"}')), ',') AS cols_metadata
@@ -176,8 +176,7 @@ cols AS (
 ), views AS (
     SELECT array_to_string(array_agg(CONCAT('{"schema":"', views.schemaname::TEXT,
                       '","view_name":"', viewname::TEXT,
-                      '","view_definition":"', encode(convert_to(REPLACE(definition::TEXT, '"', '\\"'), 'UTF8'), 'base64'),
-                    '"}')),
+                      '","view_definition":""}')),
                       ',') AS views_metadata
     FROM pg_views views
     WHERE views.schemaname NOT IN ('information_schema', 'pg_catalog')${cockroachdbViewsFilter}
